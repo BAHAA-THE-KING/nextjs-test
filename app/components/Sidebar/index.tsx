@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Icon } from "@iconify/react";
 
 import { SidebarOpen } from "./SidebarOpen";
 import { SidebarClose } from "./SidebarClose";
@@ -18,13 +19,17 @@ export const Sidebar: React.FC = () => {
   return (
     <>
       <SidebarContainer $isOpen={isOpen}>
-        <SidebarClose onClick={() => setIsOpen(false)}>Close</SidebarClose>
+        <SidebarClose onClick={() => setIsOpen(false)}>
+          <Icon icon={"material-symbols:close"} fontSize={"20px"}/>
+        </SidebarClose>
         <SidebarContent>
           <h2>User Name</h2>
           <LogOutButton>Log Out</LogOutButton>
         </SidebarContent>
       </SidebarContainer>
-      <SidebarOpen onClick={() => setIsOpen(true)}>Open</SidebarOpen>
+      <SidebarOpen onClick={() => setIsOpen(true)}>
+        <Icon icon={"quill:hamburger-sidebar"} fontSize={"20px"}/>
+      </SidebarOpen>
     </>
   );
 };
