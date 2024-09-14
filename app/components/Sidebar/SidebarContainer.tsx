@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface SidebarProps {
-  isOpen: boolean;
+  $isOpen: boolean;
 }
 
 export const SidebarContainer = styled.div<SidebarProps>`
@@ -14,14 +14,14 @@ export const SidebarContainer = styled.div<SidebarProps>`
   top: 0;
   left: 0;
   padding-left: 20px;
-  transform: translateX(${({ isOpen }) => (isOpen ? "-30px" : "-100%")});
+  transform: translateX(${({ $isOpen }) => ($isOpen ? "-30px" : "-100%")});
   transition: transform 0.3s ease;
   overflow-x: hidden;
   z-index: 1000;
 
   @media (max-width: 420px) {
     width: calc(100% - 20px);
-    transform: translateX(${({ isOpen }) => (isOpen ? "0" : "-100%")});
+    transform: translateX(${({ $isOpen }) => ($isOpen ? "0" : "-100%")});
     padding-left: 0;
   }
 `;

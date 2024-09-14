@@ -14,10 +14,10 @@ const SidebarContent = styled.div`
 `;
 
 export const Sidebar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <SidebarContainer isOpen={isOpen}>
+      <SidebarContainer $isOpen={isOpen}>
         <SidebarClose onClick={() => setIsOpen(false)}>Close</SidebarClose>
         <SidebarContent>
           <h2>User Name</h2>
