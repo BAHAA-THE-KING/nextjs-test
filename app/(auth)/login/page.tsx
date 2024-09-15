@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import styled from "styled-components";
-
-import { FormWrapper, Input, Wrapper } from "./components";
 import { useForm } from "react-hook-form";
+
+import { FormWrapper, Input, Wrapper } from "../components";
+import { useAccountData, useToken } from "@/app/hooks";
+import { loginAPI } from "../APIs/login";
 
 const Title = styled.h1`
   font-size: 2.5rem;
@@ -55,10 +58,18 @@ const FooterText = styled.p`
 `;
 
 export default function Login() {
-  const { register, handleSubmit } = useForm<{
+  const router = useRouter();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<{
     userName: string;
     password: string;
   }>();
+  const [, setToken] = useToken();
+  const [, setAccountData] = useAccountData();
+
   return (
     <Wrapper>
       <FormWrapper>
@@ -68,14 +79,30 @@ export default function Login() {
           <Input
             type="text"
             placeholder="User Name"
-            {...(register("userName"), { required: true })}
+            {...register("userName", {
+              required: "This Field Is Required.",
+              validate: (value) =>
+                value.length >= 3 ? true : "Length must be greater than 3",
+            })}
+            error={errors?.userName?.message ?? ""}
           />
           <Input
             type="password"
             placeholder="Password"
-            {...(register("password"), { required: true })}
+            {...register("password", {
+              required: "This Field Is Required.",
+              validate: (value) =>
+                value.length >= 8 ? true : "Length must be greater than 8",
+            })}
+            error={errors?.password?.message ?? ""}
           />
-          <Button onClick={handleSubmit(() => {})}>Login</Button>
+          <Button
+            onClick={handleSubmit((data) => {
+              loginAPI(data, setToken, setAccountData, router);
+            })}
+          >
+            Login
+          </Button>
         </LoginForm>
         <FooterText>
           Don&apos;t have an account? <Link href={"/signup"}>Sign up</Link>

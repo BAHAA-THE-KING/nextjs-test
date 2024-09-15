@@ -1,0 +1,38 @@
+{
+   "posts": [
+      {
+         "id": 1,
+         "user_name": "Ahmad Ramadan",
+         "user_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0va-Y5gI_CwfAIlHes8kpl0pa_H5A1eAwYlRLivX-LiFpwQHA4VC0adh1Ng1ZDvLETII&usqp=CAU",
+         "date": "2024/09/15",
+         "likes": 30,
+         "comments": 20,
+         "shares": 10,
+         "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic praesentium unde similique asperiores eveniet, molestiae quisquam animi nihil ut incidunt, qui veritatis dolor voluptatum voluptate quam laudantium labore, eos laborum."
+      },
+      {
+         "id": 2,
+         "user_name": "Mohammad Saeed",
+         "user_image": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+         "date": "2024/09/16",
+         "likes": 98,
+         "comments": 68,
+         "shares": 10,
+         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0va-Y5gI_CwfAIlHes8kpl0pa_H5A1eAwYlRLivX-LiFpwQHA4VC0adh1Ng1ZDvLETII&usqp=CAU"
+      }
+   ],
+   "users": [
+      {
+         "name": "Ahmad Ramadan"
+      },
+      {
+         "name": "Mohammad Saeed"
+      },
+      {
+         "name": "Tahseen Sami"
+      },
+      {
+         "name": "Karem Fadi"
+      }
+   ]
+}
