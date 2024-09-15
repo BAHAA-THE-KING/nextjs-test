@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sidebar } from "./components";
+import { Body } from "./components";
 
 export const metadata: Metadata = {
   title: "Test",
@@ -12,10 +12,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <Sidebar />
-        <main>{children}</main>
-      </body>
+      <Body>{children}</Body>
     </html>
   );
 }
