@@ -20,10 +20,10 @@ const UserName = styled.span`
   font-size: 16px;
 `;
 
-export function User({ user_name }: user) {
+export function User({ name }: user) {
   return (
     <UserWrapper>
-      <UserName>{user_name}</UserName>
+      <UserName>{name}</UserName>
     </UserWrapper>
   );
 }
