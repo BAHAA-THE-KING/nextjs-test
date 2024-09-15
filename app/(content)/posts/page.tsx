@@ -1,15 +1,35 @@
-import { Post } from "./components";
+"use client";
+
+import { useEffect, useState } from "react";
+import { Post, PostsWrapper } from "./components";
+import axios from "axios";
+import { post } from "@/app/types/post";
 
 export default function Posts() {
+  const [posts, setPosts] = useState<post[]>([]);
+  useEffect(() => {
+    axios
+      .get(
+        "https://my-json-server.typicode.com/BAHAA-THE-KING/nextjs-test/posts"
+      )
+      .then((response) => setPosts(response.data));
+  }, []);
   return (
-    <Post
-      user_name="Ahmad Ramadan"
-      user_image="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"
-      date="2024/09/15"
-      likes={30}
-      comments={10}
-      shares={20}
-      content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic praesentium unde similique asperiores eveniet, molestiae quisquam animi nihil ut incidunt, qui veritatis dolor voluptatum voluptate quam laudantium labore, eos laborum."
-    />
+    <PostsWrapper>
+      {posts.map((post) => (
+        <Post
+          key={post.id}
+          id={post.id}
+          user_name={post.user_name}
+          user_image={post.user_image}
+          date={post.date}
+          likes={post.likes}
+          comments={post.comments}
+          shares={post.shares}
+          content={post.content}
+          image={post.image}
+        />
+      ))}
+    </PostsWrapper>
   );
 }

@@ -3,6 +3,7 @@
 import styled from "styled-components";
 
 export const PostWrapper = styled.div`
+  width: 100%;
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
