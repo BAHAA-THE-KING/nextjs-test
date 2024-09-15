@@ -7,8 +7,8 @@ interface SidebarProps {
 export const SidebarContainer = styled.div<SidebarProps>`
   height: calc(100vh - 20px);
   width: 250px;
-  background-color: #f6f8fa;
-  border: #888c 10px solid;
+  background-color: #fff;
+  border: #888c 1px solid;
   border-radius: 20px;
   position: fixed;
   top: 0;

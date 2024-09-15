@@ -5,6 +5,7 @@ import { user } from "@/app/types/user";
 import styled from "styled-components";
 
 const UserWrapper = styled.div`
+  width: 100%;
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;

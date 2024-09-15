@@ -10,6 +10,7 @@ import { SidebarContainer } from "./SidebarContainer";
 import { LogOutButton } from "./LogOutButton";
 
 import { useAccountData, useToken } from "@/app/hooks";
+import { SidebarItem } from "./SidebarItem";
 
 const SidebarContent = styled.div`
   padding: 0 20px 20px 20px;
@@ -28,6 +29,8 @@ export const Sidebar: React.FC = () => {
         </SidebarClose>
         <SidebarContent>
           <h2>{accountData?.userName}</h2>
+          <SidebarItem to="/posts">Posts</SidebarItem>
+          <SidebarItem to="/users">Users</SidebarItem>
           <LogOutButton
             onClick={() => {
               setToken(null);
