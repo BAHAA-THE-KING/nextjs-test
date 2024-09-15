@@ -4,6 +4,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 import { FormWrapper, Input, Wrapper } from "./components";
+import { useForm } from "react-hook-form";
 
 const Title = styled.h1`
   font-size: 2.5rem;
@@ -16,7 +17,7 @@ const Subtitle = styled.p`
   margin-bottom: 2rem;
 `;
 
-const LoginForm = styled.form`
+const LoginForm = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -54,18 +55,30 @@ const FooterText = styled.p`
 `;
 
 export default function Login() {
+  const { register, handleSubmit } = useForm<{
+    userName: string;
+    password: string;
+  }>();
   return (
     <Wrapper>
       <FormWrapper>
         <Title>Welcome Back!</Title>
         <Subtitle>Login to your account</Subtitle>
         <LoginForm>
-          <Input type="text" placeholder="User Name" />
-          <Input type="password" placeholder="Password" />
-          <Button>Login</Button>
+          <Input
+            type="text"
+            placeholder="User Name"
+            {...(register("userName"), { required: true })}
+          />
+          <Input
+            type="password"
+            placeholder="Password"
+            {...(register("password"), { required: true })}
+          />
+          <Button onClick={handleSubmit(() => {})}>Login</Button>
         </LoginForm>
         <FooterText>
-          Don&apos;t have an account? <Link href={"/signup"} >Sign up</Link>
+          Don&apos;t have an account? <Link href={"/signup"}>Sign up</Link>
         </FooterText>
       </FormWrapper>
     </Wrapper>
