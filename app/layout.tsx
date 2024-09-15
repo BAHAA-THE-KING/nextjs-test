@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Body } from "./components";
+import { AppWrapper, Body } from "./components";
 
 export const metadata: Metadata = {
   title: "Test",
@@ -12,7 +12,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Body>{children}</Body>
+      <AppWrapper>
+        <Body>{children}</Body>
+      </AppWrapper>
     </html>
   );
 }

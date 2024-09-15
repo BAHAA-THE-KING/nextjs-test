@@ -16,7 +16,7 @@ const Subtitle = styled.p`
   margin-bottom: 2rem;
 `;
 
-const LoginForm = styled.form`
+const SignupForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -59,11 +59,11 @@ export default function Login() {
       <FormWrapper>
         <Title>Welcome!</Title>
         <Subtitle>Sign up a new account</Subtitle>
-        <LoginForm>
+        <SignupForm>
           <Input type="text" placeholder="User Name" />
           <Input type="password" placeholder="Password" />
           <Button>Sign up</Button>
-        </LoginForm>
+        </SignupForm>
         <FooterText>
           Already have an account? <Link href={"/login"}>Log In</Link>
         </FooterText>
