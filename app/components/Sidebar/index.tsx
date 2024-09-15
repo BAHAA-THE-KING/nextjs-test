@@ -19,7 +19,7 @@ const SidebarContent = styled.div`
 export const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [, setToken] = useToken();
-  const [, setAccountData] = useAccountData();
+  const [accountData, setAccountData] = useAccountData();
   return (
     <>
       <SidebarContainer $isOpen={isOpen}>
@@ -27,7 +27,7 @@ export const Sidebar: React.FC = () => {
           <Icon icon={"material-symbols:close"} fontSize={"20px"} />
         </SidebarClose>
         <SidebarContent>
-          <h2>User Name</h2>
+          <h2>{accountData?.userName}</h2>
           <LogOutButton
             onClick={() => {
               setToken(null);
